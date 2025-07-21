@@ -1,0 +1,124 @@
+:root {
+  --bg-color: #f0f4ff;
+  --text-color: #222;
+  --box-color: #ffffff;
+  --primary: #6c63ff;
+  --secondary: #48c9b0;
+  --button-bg: #6c63ff;
+  --button-hover: #4b43d8;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #f5f5f5;
+  --box-color: #1e1e1e;
+  --primary: #9575cd;
+  --secondary: #4dd0e1;
+  --button-bg: #9575cd;
+  --button-hover: #7e57c2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.4s, color 0.4s;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: white;
+  font-size: 1.5em;
+}
+
+.toggle-dark {
+  background: white;
+  color: var(--primary);
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: all 0.3s;
+}
+
+.toggle-dark:hover {
+  background: #eeeeee;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: var(--box-color);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  transition: background 0.4s;
+}
+
+.language-select {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+select {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+textarea {
+  width: 100%;
+  height: 140px;
+  padding: 15px;
+  font-size: 1em;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  resize: vertical;
+  background: #fff;
+}
+
+textarea[readonly] {
+  background: #f9f9f9;
+}
+
+button {
+  background: var(--button-bg);
+  color: white;
+  padding: 10px 18px;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: var(--button-hover);
+}
+
+h3 {
+  margin-top: 0;
+  color: var(--primary);
+}
+
+@media (max-width: 600px) {
+  .language-select {
+    flex-direction: column;
+  }
+}

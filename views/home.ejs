@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+  <header>
+    LinguiX Translator
+    <button class="toggle-dark" onclick="toggleTheme()">🌙 Dark Mode</button>
+  </header>
+
+  <div class="container">
+    <form id="translateForm">
+      <div class="language-select">
+        <select id="fromLang" name="fromLang">
+          <% languages.forEach(lang => { %>
+            <option value="<%= lang.code %>"><%= lang.name %></option>
+          <% }); %>
+        </select>
+
+        <select id="toLang" name="toLang">
+          <% languages.forEach(lang => {
+            if (lang.code !== 'auto') { %>
+              <option value="<%= lang.code %>"><%= lang.name %></option>
+          <% } }); %>
+        </select>
+      </div>
+
+      <div style="position: relative;">
+        <textarea id="inputText" name="inputText" placeholder="Enter text to translate..."></textarea>
+        <button type="button" onclick="startVoiceInput()" style="
+          position: absolute;
+          right: 10px;
+          bottom: 10px;
+          padding: 6px 10px;
+          font-size: 1em;
+          background: #ff4081;
+          color: white;
+          border: none;
+          border-radius: 50%;
+          cursor: pointer;
+        " title="Click to speak">🎤</button>
+      </div>
+
+      <div>
+        <button type="submit">Translate</button>
+        <button type="button" onclick="swapLanguages()">Swap</button>
+        <button type="button" onclick="copyText()">Copy</button>
+      </div>
+    </form>
+
+    <div class="output-area">
+      <h3>Translated Text:</h3>
+      <textarea id="outputText" readonly placeholder="Translation will appear here..."></textarea>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2023 LinguiX Translator. All rights reserved.</p>
+  </footer>
+  <script src="/script.js"></script>
+</body>
+</html>
